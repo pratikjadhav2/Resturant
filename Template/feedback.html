@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block class %}class="sub_page"{% endblock class %}
+{% block feedback_status %}active{% endblock feedback_status %}
+
+{% block main %}
+
+    <!-- about section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          FeedBack
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url 'Feedback' %}" method='POST'>{% csrf_token %}
+              <div>
+                <input type="text" class="form-control" placeholder="Your Name" name="user_name" />
+              </div>
+              <div>
+                <input type="number" class="form-control" placeholder="Rating" min="1" max="5" name="user_rating" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Description" name="user_description" />
+              </div>
+              <div class="btn_box">
+                <button>
+                  submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- end about section -->
+
+{% endblock main %}
